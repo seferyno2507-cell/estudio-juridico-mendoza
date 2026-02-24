@@ -62,8 +62,8 @@ body {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-  max-width: 60%;
-  min-width: 0; /* ✅ permite truncar sin romper layout */
+  max-width: 70%;
+  min-width: 0; /* permite truncar si hiciera falta */
 }
 
 /* Logo */
@@ -72,13 +72,15 @@ body {
   width: auto;
   object-fit: contain;
   display: block;
+  flex: 0 0 auto;
 }
 
-/* Texto al costado */
+/* Texto: SIEMPRE en 2 líneas (arriba/abajo) */
 .brand-text{
   display: flex;
-  flex-direction: column; /* default desktop/tablet */
-  line-height: 1.1;
+  flex-direction: column; /* ✅ siempre apilado */
+  justify-content: center;
+  line-height: 1.05;
   white-space: nowrap;
   min-width: 0;
 }
@@ -95,6 +97,24 @@ body {
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 0.02em;
+
+  /* Subrayado dorado fino */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.brand-line-2::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 92%;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  opacity: 0.9;
 }
 
 /* ===== NAV (BOTÓN HAMBURGUESA) ===== */
@@ -390,35 +410,30 @@ dialog article { padding: 1.2rem; position: relative; }
 
 /* ===== RESPONSIVE ===== */
 
-/* ✅ MOVIL: UNA SOLA LINEA “Estudio Jurídico Mendoza y Abogados” */
+/* MOBILE */
 @media (max-width: 480px){
   .brand{ max-width: 78%; gap: 8px; }
   .logo{ height: 30px; }
 
-  .brand-text{
-    flex-direction: row;     /* 👈 horizontal */
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-
   .brand-line-1{
-    display: inline;         /* ✅ ya NO se oculta */
     font-size: 0.70rem;
     letter-spacing: 0.06em;
   }
-
   .brand-line-2{
     font-size: 0.92rem;
-    font-weight: 700;
+    padding-bottom: 5px;
+  }
+  .brand-line-2::after{
+    height: 1.5px;
+    width: 88%;
   }
 }
 
 /* TABLET */
 @media (max-width: 768px){
   .logo{ height: 32px; }
-  .brand-line-1{ font-size: 0.65rem; }
-  .brand-line-2{ font-size: 0.90rem; }
+  .brand-line-1{ font-size: 0.68rem; }
+  .brand-line-2{ font-size: 0.95rem; }
 }
 
 /* DESKTOP */
@@ -449,6 +464,6 @@ dialog article { padding: 1.2rem; position: relative; }
 
   .brand{ gap: 14px; max-width: 60%; }
   .logo{ height: 44px; }
-  .brand-line-1{ font-size: 0.8rem; letter-spacing: 0.1em; }
-  .brand-line-2{ font-size: 1.08rem; font-weight: 700; }
+  .brand-line-1{ font-size: 0.82rem; letter-spacing: 0.1em; }
+  .brand-line-2{ font-size: 1.08rem; }
 }
