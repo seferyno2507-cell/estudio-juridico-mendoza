@@ -43,44 +43,68 @@ body {
   z-index: 1000;
   background: rgba(10, 22, 35, 0.96);
   backdrop-filter: blur(8px);
-  padding: 10px 0; /* controla la altura visual */
+  padding: 10px 0;
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 60px; /* evita que el logo “tape todo” */
+  min-height: 60px;
   padding: 0.4rem 0;
 }
 
-/* Brand: ahora funciona para logo imagen (y si algún día vuelves a texto) */
+/* ===== BRAND (LOGO + NOMBRE) ===== */
 .brand {
   text-decoration: none;
   color: var(--white);
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0; /* evita que empuje el menú */
 }
 
-/* Si aún existen spans de texto en el HTML, no molestan */
-.brand-top { font-size: 0.75rem; letter-spacing: 0.12em; }
-.brand-bottom { font-size: 0.95rem; color: var(--gold); font-weight: 600; }
-
-/* Logo imagen (tu ets.jpeg o logo.png) */
+/* Logo */
 .logo{
-  height: 36px;
+  height: 38px;
   width: auto;
   object-fit: contain;
   display: block;
 }
 
-@media (max-width: 768px){
-  .logo{
-    height: 30px;
-  }
+/* Texto al costado */
+.brand-text{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
 }
 
+.brand-line-1{
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  opacity: 0.95;
+}
+
+.brand-line-2{
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+/* Si aún existen spans antiguos, no molestan */
+.brand-top { font-size: 0.75rem; letter-spacing: 0.12em; }
+.brand-bottom { font-size: 0.95rem; color: var(--gold); font-weight: 600; }
+
+/* MOBILE */
+@media (max-width: 768px){
+  .logo{ height: 32px; }
+  .brand-line-1{ font-size: 0.65rem; }
+  .brand-line-2{ font-size: 0.86rem; }
+}
+
+/* ===== NAV ===== */
 .nav-toggle {
   background: none;
   border: 0;
@@ -395,4 +419,12 @@ dialog article { padding: 1.2rem; position: relative; }
 @media (min-width: 1024px) {
   .areas-grid { grid-template-columns: repeat(4, 1fr); }
   .blog-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== AJUSTE BRAND ESCRITORIO (FINAL) ===== */
+@media (min-width: 1024px){
+  .brand{ gap: 14px; }
+  .logo{ height: 44px; }
+  .brand-line-1{ font-size: 0.8rem; letter-spacing: 0.1em; }
+  .brand-line-2{ font-size: 1.08rem; font-weight: 700; }
 }
