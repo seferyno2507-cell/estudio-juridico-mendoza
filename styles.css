@@ -36,29 +36,50 @@ body {
   margin-inline: auto;
 }
 
+/* ===== HEADER / NAV ===== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: rgba(10, 22, 35, 0.96);
   backdrop-filter: blur(8px);
+  padding: 10px 0; /* controla la altura visual */
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 0;
+  min-height: 60px; /* evita que el logo “tape todo” */
+  padding: 0.4rem 0;
 }
 
+/* Brand: ahora funciona para logo imagen (y si algún día vuelves a texto) */
 .brand {
   text-decoration: none;
   color: var(--white);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
+
+/* Si aún existen spans de texto en el HTML, no molestan */
 .brand-top { font-size: 0.75rem; letter-spacing: 0.12em; }
 .brand-bottom { font-size: 0.95rem; color: var(--gold); font-weight: 600; }
+
+/* Logo imagen (tu ets.jpeg o logo.png) */
+.logo{
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px){
+  .logo{
+    height: 30px;
+  }
+}
 
 .nav-toggle {
   background: none;
@@ -95,6 +116,7 @@ body {
   text-decoration: none;
 }
 
+/* ===== HERO ===== */
 .hero {
   background: linear-gradient(135deg, var(--navy), #132b44);
   color: var(--white);
@@ -126,6 +148,7 @@ h1 { font-size: clamp(1.9rem, 5vw, 3rem); }
   border-radius: 1rem;
 }
 
+/* ===== SECTIONS ===== */
 .section { padding: 4rem 0; }
 .section-alt { background: var(--gray); }
 .section-subtitle { margin-top: -0.2rem; color: #516170; }
@@ -161,6 +184,7 @@ h1 { font-size: clamp(1.9rem, 5vw, 3rem); }
   box-shadow: var(--shadow);
 }
 
+/* ===== TESTIMONIALS ===== */
 .testimonial-slider {
   position: relative;
   min-height: 210px;
@@ -176,6 +200,7 @@ h1 { font-size: clamp(1.9rem, 5vw, 3rem); }
 .testimonial.active { display: block; }
 .stars { color: var(--gold); margin-bottom: 0.3rem; }
 
+/* ===== BLOG ===== */
 .blog-filters {
   display: flex;
   flex-wrap: wrap;
@@ -197,6 +222,7 @@ h1 { font-size: clamp(1.9rem, 5vw, 3rem); }
 }
 .blog-card.hidden { display: none; }
 
+/* ===== FAQ ===== */
 .faq-list { display: grid; gap: 0.7rem; }
 .faq-item {
   border: 1px solid #d9dee3;
@@ -225,6 +251,7 @@ h1 { font-size: clamp(1.9rem, 5vw, 3rem); }
   padding-bottom: 0.8rem;
 }
 
+/* ===== CONTACT ===== */
 .contact-grid {
   display: grid;
   gap: 1rem;
@@ -256,6 +283,7 @@ input:focus, select:focus, textarea:focus {
 .form-feedback.error { color: #b32121; }
 .form-feedback.success { color: #146c2e; }
 
+/* ===== BUTTONS ===== */
 .btn {
   display: inline-block;
   border: 0;
@@ -285,6 +313,7 @@ input:focus, select:focus, textarea:focus {
   text-decoration: none;
 }
 
+/* ===== FOOTER ===== */
 .site-footer {
   background: var(--navy);
   color: var(--white);
@@ -302,6 +331,7 @@ input:focus, select:focus, textarea:focus {
   font-size: 0.9rem;
 }
 
+/* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float {
   position: fixed;
   right: 1rem;
@@ -315,6 +345,7 @@ input:focus, select:focus, textarea:focus {
   z-index: 1100;
 }
 
+/* ===== MODAL ===== */
 dialog {
   border: 0;
   border-radius: 0.8rem;
@@ -333,11 +364,13 @@ dialog article { padding: 1.2rem; position: relative; }
   cursor: pointer;
 }
 
+/* ===== ANIM ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ===== RESPONSIVE GRIDS ===== */
 @media (min-width: 760px) {
   .nav-toggle { display: none; }
   .nav-links {
