@@ -61,7 +61,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0; /* evita que empuje el menú */
+  flex-shrink: 0; /* no empuja el menú */
+  max-width: 55%;  /* evita que ocupe toda la barra */
 }
 
 /* Logo */
@@ -72,11 +73,12 @@ body {
   display: block;
 }
 
-/* Texto al costado */
+/* Texto al costado (VISIBLE) */
 .brand-text{
   display: flex;
   flex-direction: column;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .brand-line-1{
@@ -93,18 +95,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Si aún existen spans antiguos, no molestan */
-.brand-top { font-size: 0.75rem; letter-spacing: 0.12em; }
-.brand-bottom { font-size: 0.95rem; color: var(--gold); font-weight: 600; }
-
-/* MOBILE */
-@media (max-width: 768px){
-  .logo{ height: 32px; }
-  .brand-line-1{ font-size: 0.65rem; }
-  .brand-line-2{ font-size: 0.86rem; }
-}
-
-/* ===== NAV ===== */
+/* ===== NAV (BOTÓN HAMBURGUESA) ===== */
 .nav-toggle {
   background: none;
   border: 0;
@@ -119,6 +110,7 @@ body {
   background: var(--white);
 }
 
+/* ===== MENÚ MOBILE (DESPLEGABLE) ===== */
 .nav-links {
   list-style: none;
   margin: 0;
@@ -394,7 +386,24 @@ dialog article { padding: 1.2rem; position: relative; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== RESPONSIVE GRIDS ===== */
+/* ===== RESPONSIVE ===== */
+
+/* MOBILE: si se aprieta, ocultamos SOLO la línea 1 y dejamos la marca */
+@media (max-width: 480px){
+  .brand { max-width: 70%; }
+  .logo { height: 30px; }
+  .brand-line-1 { display: none; }
+  .brand-line-2 { font-size: 0.86rem; }
+}
+
+/* TABLET */
+@media (max-width: 768px){
+  .logo{ height: 32px; }
+  .brand-line-1{ font-size: 0.65rem; }
+  .brand-line-2{ font-size: 0.90rem; }
+}
+
+/* DESKTOP */
 @media (min-width: 760px) {
   .nav-toggle { display: none; }
   .nav-links {
@@ -419,11 +428,9 @@ dialog article { padding: 1.2rem; position: relative; }
 @media (min-width: 1024px) {
   .areas-grid { grid-template-columns: repeat(4, 1fr); }
   .blog-grid { grid-template-columns: repeat(3, 1fr); }
-}
 
-/* ===== AJUSTE BRAND ESCRITORIO (FINAL) ===== */
-@media (min-width: 1024px){
-  .brand{ gap: 14px; }
+  /* Ajuste brand para escritorio */
+  .brand{ gap: 14px; max-width: 60%; }
   .logo{ height: 44px; }
   .brand-line-1{ font-size: 0.8rem; letter-spacing: 0.1em; }
   .brand-line-2{ font-size: 1.08rem; font-weight: 700; }
