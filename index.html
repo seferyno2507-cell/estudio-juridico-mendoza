@@ -15,12 +15,22 @@
 
   <header class="site-header" id="inicio">
     <nav class="navbar container" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Inicio - ESTUDIO JURÍDICO MENDOZA Y ABOGADOS">
-        <img src="ets.jpeg" alt="Estudio Jurídico Mendoza y Abogados" class="logo">
+
+      <!-- ✅ BRAND: LOGO + NOMBRE AL COSTADO -->
+      <a class="brand" href="#inicio" aria-label='Inicio - Estudio Jurídico "Mendoza y Abogados"'>
+        <img src="ets.jpeg" alt='Estudio Jurídico "Mendoza y Abogados"' class="logo" />
+
+        <!-- Texto visible al costado del logo -->
+        <div class="brand-text">
+          <span class="brand-line-1">Estudio Jurídico</span>
+          <span class="brand-line-2">Mendoza y Abogados</span>
+        </div>
       </a>
+
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
         <span></span><span></span><span></span>
       </button>
+
       <ul id="menu" class="nav-links">
         <li><a href="#areas">Áreas</a></li>
         <li><a href="#por-que">¿Por qué elegirnos?</a></li>
@@ -28,7 +38,11 @@
         <li><a href="#blog">Blog</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contacto">Contacto</a></li>
-        <li><a class="btn btn-sm" href="https://wa.me/51944266759?text=" target="_blank" rel="noopener noreferrer">Consulta inmediata</a></li>
+        <li>
+          <a class="btn btn-sm" href="https://wa.me/51944266759?text=" target="_blank" rel="noopener noreferrer">
+            Consulta inmediata
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
